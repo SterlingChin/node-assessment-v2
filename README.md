@@ -41,10 +41,10 @@ Create the following endpoints in `server.js` using express.
 6.  Change an account's card type. The language will be sent in the body `{card_type: "New card type"}`. Update the account in your array and then return a valid status code and the updated account object.
    `POST: /api/accounts/cardtype/` + accountId
 
-7.  Add to an accounts approved states. Use params to get an account by id. You will receive the data on the body `{add: 'New state'}`. Return a valid status code.
+7. 8 - Add to an accounts approved states. Use params to get an account by id. You will receive the data on the body `{add: 'New state'}`. Return a valid status code.
    `POST: /api/accounts/approvedstates/:accountId/`
 
-8. Remove from an accounts approved states. Use delete REST method. You will receive the account id in the url params. You will receive the state to delete in the query. You will need to search your array and splice it out.
+8. 9 - Remove from an accounts approved states. Use delete REST method. You will receive the account id in the url params. You will receive the state to delete in the query. You will need to search your array and splice it out.
    `DELETE: /api/accounts/approvedstates/:accountId/` + `?state=` + statename.
 
 9.  Ban (delete) an account. Use REST method delete and the query params to delete an account by their id number.

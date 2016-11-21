@@ -1,4 +1,13 @@
-[{"id":1,"card_number":"3551538724170358","card_type":"jcb","balance":"398.63","first_name":"Lori","last_name":"Lynch","approved_states":["Colorado"]},
+[
+  {
+  "id":1,
+  "card_number":"3551538724170358",
+  "card_type":"jcb",
+  "balance":"398.63",
+  "first_name":"Lori",
+  "last_name":"Lynch",
+  "approved_states":["Colorado"]
+},
 {"id":2,"card_number":"3544299882024891","card_type":"jcb","balance":"515.94","first_name":"Maria","last_name":"Perry","approved_states":["Utah"]},
 {"id":3,"card_number":"5181329760945462","card_type":"mastercard","balance":"696.89","first_name":"Betty","last_name":"Hughes","approved_states":["California"]},
 {"id":4,"card_number":"3545122127352159","card_type":"jcb","balance":"608.25","first_name":"Annie","last_name":"Pierce","approved_states":["Arizona"]},
