@@ -16,10 +16,11 @@ app.get('/api/accounts', function(req, res, next) {
         // console.log(results);
         res.send(results);
     } else if (query.firstname) {
+        // console.log("firstname1", query.firstname);
         results = accounts.filter(function(e) {
             return e.first_name.toLowerCase() === query.firstname.toLowerCase();
         });
-        // console.log(results);
+        // console.log("firstname results",results);
         res.send(results);
     } else if (query.lastname) {
         results = accounts.filter(function(e) {
@@ -54,7 +55,7 @@ app.get('/api/accounts/:id', function(req, res, next) {
             flag = true;
         }
     });
-    if (!flag) res.send(404);
+    if (!flag) res.sendStatus(404);
 });
 
 app.post('/api/accounts', function(req, res, next) {
@@ -100,35 +101,34 @@ app.post('/api/accounts/approvedstates/:id', function(req, res, next) {
     });
 });
 
-app.delete('/api/accounts/approvedstates/:accountId/:', function(req, res, next) {
-    var id = +req.params.id;
-    var deleteState = req.query.state;
+app.delete('/api/accounts/approvedstates/:accountId/', function(req, res, next) {
+    var xState = req.query.state;
+    var id = +req.params.accountId;
     accounts.map(function(e, i) {
-        if (e.id === accounts.id) {
-            e.approved_states.splice(e.approved_states.indexOf(deleteState), 1);
+        if (e.id === id) {
+            e.approved_states.splice(e.approved_states.indexOf(xState), 1);
             res.json(e.approved_states);
         }
     });
 });
 
-app.delete('/api/accounts/', function(req, res, send) {
-    var id = req.query.id;
+app.delete('/api/accounts/:accountId', function(req, res, send) {
+    var ids = +req.params.accountId;
     accounts.map(function(e, i) {
-        if (e.id === accounts.id) {
+        if (e.id === ids) {
             accounts.splice(i, 1);
-        res.sendStatus(200);
-      }
+            res.sendStatus(200);
+        }
     });
 });
 
-app.put('/api/accounts/:id', function(req, res, next) {
-    var id = +req.params.id;
+app.put('/api/accounts/:accountId', function(req, res, next) {
+    var ids = +req.params.accountId;
     accounts.map(function(e, i) {
-        if (e.id === id) {
+        if (e.id === ids) {
             for (var key in req.body) {
-                key[i] = req.body[key];
+                e[key] = req.body[key];
             }
-            // console.log(e);
             res.json(e);
         }
     });
